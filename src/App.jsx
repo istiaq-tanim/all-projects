@@ -1,8 +1,18 @@
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import TaskBoard from './components/TaskBoard/TaskBoard';
+import TaskProvider from "./Providers/TaskProvider";
 
 function App() {
   return (
-    <div className="text-2xl justify-between py-4 text-violet-400">
-      <p>Project Manager Noted</p>
+    <div className="flex h-screen">
+      <Sidebar></Sidebar>
+      <TaskProvider>
+        <main className="flex-1 overflow-y-auto overflow-x-hidden">
+          <Header></Header>
+          <TaskBoard></TaskBoard>
+        </main>
+      </TaskProvider>
     </div>
   )
 }
