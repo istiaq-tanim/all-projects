@@ -1,9 +1,11 @@
 
+import { colorClassesText } from '../../constatnt';
+import getFormatTime from './../../utils/getFormatTime';
 function SingleTask({ task, color }) {
       return (
             <div className="mb-4 rounded-lg bg-gray-800 p-4">
                   <div className="flex justify-between">
-                        <h4 className={`mb-2 flex-1 font-semibold ${color}`}>
+                        <h4 className={`mb-2 flex-1 font-semibold ${colorClassesText[color]}`}>
                               {task.title}
                         </h4>
 
@@ -49,7 +51,7 @@ function SingleTask({ task, color }) {
                         {task.description}
                   </p>
 
-                  <p className="mt-6 text-xs text-zinc-400">February 20, 2024</p>
+                  <p className="mt-6 text-xs text-zinc-400">{getFormatTime(task.date)}</p>
             </div>
       )
 }
