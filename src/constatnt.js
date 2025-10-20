@@ -10,3 +10,4 @@ export const colorClassesBackGround = {
       indigo: 'bg-indigo-500',
       yellow: 'bg-yellow-500',
 };
+
