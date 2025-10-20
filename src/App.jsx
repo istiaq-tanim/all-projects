@@ -6,6 +6,7 @@ import TaskProvider from "./Providers/TaskProvider";
 function App() {
   return (
     <div className="flex h-screen">
+
       <Sidebar></Sidebar>
       <TaskProvider>
         <main className="flex-1 overflow-y-auto overflow-x-hidden">

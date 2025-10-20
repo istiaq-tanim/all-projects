@@ -48,13 +48,13 @@ const initialTasks = [
             category: "revise",
             date: "2025-10-16"
       },
-      {
-            id: 8,
-            title: "Finalize UI color palette",
-            description: "Choose final color theme for the app.",
-            category: "done",
-            date: "2025-10-14"
-      }
+      // {
+      //       id: 8,
+      //       title: "Finalize UI color palette",
+      //       description: "Choose final color theme for the app.",
+      //       category: "done",
+      //       date: "2025-10-14"
+      // }
 ];
 
 export default initialTasks
