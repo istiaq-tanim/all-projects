@@ -1,5 +1,4 @@
 
-import { colorClassesText } from '../../constatnt';
 import { useTask } from '../../hooks/useTask';
 import getFormatTime from './../../utils/getFormatTime';
 function SingleTask({ task, color, onHandleEdit }) {
@@ -13,7 +12,7 @@ function SingleTask({ task, color, onHandleEdit }) {
       return (
             <div className="mb-4 rounded-lg bg-gray-800 p-4">
                   <div className="flex justify-between">
-                        <h4 className={`mb-2 flex-1 font-semibold ${colorClassesText[color]}`}>
+                        <h4 className={`mb-2 flex-1 font-semibold ${color}`}>
                               {task.title}
                         </h4>
 

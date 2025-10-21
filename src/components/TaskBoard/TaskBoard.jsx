@@ -1,18 +1,19 @@
 import { useState } from "react";
+import { colorClassesBackGround, colorClassesText } from "../../constatnt";
 import { useTask } from "../../hooks/useTask";
 import AddEditTaskModal from "./AddEditTaskModal";
 import AddTask from "./AddTask";
-import TaskColumn from "./TaskColumn";
+import TaskColumn from './TaskColumn';
 
 function TaskBoard() {
       const { tasks } = useTask()
       const [openModal, setOpenModal] = useState(false)
       const [editTask, setEditTask] = useState(null)
 
-      const todoTasks = tasks.filter(task => task.category === "todo")
-      const progressTasks = tasks.filter(task => task.category === "progress")
-      const doneTasks = tasks.filter(task => task.category === "done")
-      const reviseTasks = tasks.filter(task => task.category === "revise")
+      const getTaskBasedOnCategory = (category) => {
+            const categoriesTask = tasks.filter(task => task.category === category)
+            return categoriesTask
+      }
 
       const handleEdit = (task) => {
             setEditTask(task)
@@ -23,6 +24,8 @@ function TaskBoard() {
             setOpenModal(false)
             setEditTask(null)
       }
+
+      const categories = ["todo", "progress", "done", "revise"]
       return (
             <div className="mx-auto max-w-7xl p-6">
                   {
@@ -30,10 +33,11 @@ function TaskBoard() {
                   }
                   <AddTask onOpenModal={() => setOpenModal(true)}></AddTask>
                   <div class="-mx-2 mb-6 flex flex-wrap">
-                        <TaskColumn categoriesTask={todoTasks} onHandleEdit={handleEdit} color="indigo" title="To-Do"></TaskColumn>
-                        <TaskColumn categoriesTask={progressTasks} onHandleEdit={handleEdit} color="yellow" title="On Progress"></TaskColumn>
-                        <TaskColumn categoriesTask={doneTasks} onHandleEdit={handleEdit} color="teal" title="Done"></TaskColumn>
-                        <TaskColumn categoriesTask={reviseTasks} onHandleEdit={handleEdit} color="rose" title="Done"></TaskColumn>
+                        {
+                              categories.map((category) => (
+                                    <TaskColumn categoriesTask={getTaskBasedOnCategory(category)} onHandleEdit={handleEdit} background={colorClassesBackGround[category]} color={colorClassesText[category]} title={category}></TaskColumn>
+                              ))
+                        }
 
                   </div>
             </div >

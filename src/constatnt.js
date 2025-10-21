@@ -1,13 +1,13 @@
 export const colorClassesText = {
-      rose: 'text-rose-500',
-      teal: 'text-teal-500',
-      indigo: 'text-indigo-500',
-      yellow: 'text-yellow-500',
+      todo: 'text-indigo-500',
+      progress: 'text-teal-500',
+      done: 'text-rose-500',
+      revise: 'text-yellow-500',
 };
 export const colorClassesBackGround = {
-      rose: 'bg-rose-500',
-      teal: 'bg-teal-500',
-      indigo: 'bg-indigo-500',
-      yellow: 'bg-yellow-500',
+      todo: 'bg-indigo-500',
+      progress: 'bg-teal-500',
+      done: 'bg-rose-500',
+      revise: 'bg-yellow-500',
 };
 

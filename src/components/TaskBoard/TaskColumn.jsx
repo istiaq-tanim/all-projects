@@ -1,15 +1,14 @@
 import { useState } from "react"
-import { colorClassesBackGround } from "../../constatnt"
 import SingleTask from "./SingleTask"
 
-function TaskColumn({ color, categoriesTask, title, onHandleEdit }) {
+function TaskColumn({ color, categoriesTask, title, onHandleEdit, background }) {
       const [sortOrder, setSortOrder] = useState("desc")
       const sortedTask = [...categoriesTask].sort((a, b) => sortOrder === "desc" ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date))
       return (
             <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
-                  <div className={`rounded-lg ${colorClassesBackGround[color]} p-4 `}>
+                  <div className={`rounded-lg ${background} p-4`}>
                         <div className="mb-2 flex items-center justify-between">
-                              <h3 className="text-lg font-semibold">{title} ({categoriesTask.length})</h3>
+                              <h3 className="text-lg font-semibold">{title.toUpperCase()} ({categoriesTask.length})</h3>
                               <button onClick={() => setSortOrder(prev => prev === "asc" ? "desc" : "asc")}>
                                     <svg
                                           xmlns="http://www.w3.org/2000/svg"
