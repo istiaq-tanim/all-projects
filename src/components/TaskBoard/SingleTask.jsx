@@ -2,7 +2,7 @@
 import { colorClassesText } from '../../constatnt';
 import { useTask } from '../../hooks/useTask';
 import getFormatTime from './../../utils/getFormatTime';
-function SingleTask({ task, color }) {
+function SingleTask({ task, color, onHandleEdit }) {
       const { dispatch } = useTask()
       const handleDelete = (taskId) => {
             dispatch({
@@ -41,7 +41,7 @@ function SingleTask({ task, color }) {
                                           <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                                     </svg>
                               </button>
-                              <button>
+                              <button onClick={() => onHandleEdit(task)}>
                                     <svg
                                           className="h-4 w-4 cursor-pointer text-zinc-300"
                                           fill="none"

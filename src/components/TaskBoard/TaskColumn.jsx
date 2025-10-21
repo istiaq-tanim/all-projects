@@ -2,7 +2,7 @@ import { useState } from "react"
 import { colorClassesBackGround } from "../../constatnt"
 import SingleTask from "./SingleTask"
 
-function TaskColumn({ color, categoriesTask, title }) {
+function TaskColumn({ color, categoriesTask, title, onHandleEdit }) {
       const [sortOrder, setSortOrder] = useState("desc")
       const sortedTask = [...categoriesTask].sort((a, b) => sortOrder === "desc" ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date))
       return (
@@ -34,7 +34,7 @@ function TaskColumn({ color, categoriesTask, title }) {
                         </div>
                         <div>
                               {
-                                    sortedTask.map(task => <SingleTask key={task.id} color={color} task={task}></SingleTask>)
+                                    sortedTask.map(task => <SingleTask key={task.id} color={color} task={task} onHandleEdit={onHandleEdit}></SingleTask>)
                               }
                         </div>
 
